@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Message Received | Level Up with Niisie</title>
+
+<meta
+  name="description"
+  content="Thank you for reaching out to Niisie. Your message has been received."
+/>
+
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+
+<!-- Font Awesome -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<style>
+
+:root {
+  --neon: #00ff99;
+  --neon2: #00ffcc;
+  --bg: #050505;
+  --card: rgba(18,18,18,0.82);
+  --text: #f5f5f5;
+  --muted: #a0a0a0;
+  --border: rgba(0,255,153,0.16);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', system-ui, sans-serif;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,255,153,0.08), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(0,255,204,0.06), transparent 30%),
+    var(--bg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* =========================
+   BACKGROUND GRID
+========================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(0,255,153,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,153,0.035) 1px, transparent 1px);
+
+  background-size: 50px 50px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+
+  pointer-events: none;
+}
+
+/* =========================
+   FLOATING PARTICLES
+========================= */
+
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  background: var(--neon);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 10px var(--neon),
+    0 0 20px rgba(0,255,153,0.5);
+
+  animation: floatParticle linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes floatParticle {
+
+  0% {
+    transform: translateY(110vh) translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.7;
+  }
+
+  90% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(-10vh) translateX(80px);
+    opacity: 0;
+  }
+
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.thank-you-container {
+
+  position: relative;
+  z-index: 5;
+
+  width: min(680px, 92%);
+
+  padding: 55px 45px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(0,255,153,0.06),
+      rgba(255,255,255,0.015)
+    ),
+    var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 24px;
+
+  backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 25px 80px rgba(0,0,0,0.65),
+    0 0 60px rgba(0,255,153,0.05);
+
+  animation: containerIn 1s ease forwards;
+
+  overflow: hidden;
+}
+
+@keyframes containerIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+/* glowing border */
+
+.thank-you-container::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 100%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--neon),
+      transparent
+    );
+
+  animation: borderScan 4s linear infinite;
+}
+
+@keyframes borderScan {
+
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.brand {
+
+  color: var(--neon);
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 30px;
+
+  text-shadow:
+    0 0 10px rgba(0,255,153,0.5);
+}
+
+.brand span {
+  color: var(--text);
+}
+
+/* =========================
+   SUCCESS ICON
+========================= */
+
+.success-icon {
+
+  width: 90px;
+  height: 90px;
+
+  margin: 0 auto 25px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--neon);
+
+  font-size: 40px;
+
+  border: 2px solid var(--neon);
+
+  background: rgba(0,255,153,0.06);
+
+  box-shadow:
+    0 0 20px rgba(0,255,153,0.25),
+    inset 0 0 20px rgba(0,255,153,0.05);
+
+  animation:
+    successPulse 2s infinite,
+    successAppear 1s ease;
+}
+
+@keyframes successAppear {
+
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+
+}
+
+@keyframes successPulse {
+
+  0%,100% {
+    box-shadow:
+      0 0 15px rgba(0,255,153,0.2),
+      inset 0 0 15px rgba(0,255,153,0.05);
+  }
+
+  50% {
+    box-shadow:
+      0 0 35px rgba(0,255,153,0.5),
+      inset 0 0 25px rgba(0,255,153,0.1);
+  }
+
+}
+
+/* =========================
+   HEADING
+========================= */
+
+h1 {
+
+  font-size: clamp(2rem, 5vw, 3rem);
+
+  color: var(--neon);
+
+  line-height: 1.2;
+
+  margin-bottom: 18px;
+
+  text-shadow:
+    0 0 15px rgba(0,255,153,0.25);
+
+}
+
+h1 span {
+  color: var(--text);
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+
+  color: var(--muted);
+
+  font-size: 1.05rem;
+
+  line-height: 1.8;
+
+  max-width: 540px;
+
+  margin: 0 auto 28px;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 8px 15px;
+
+  border-radius: 999px;
+
+  background: rgba(0,255,153,0.06);
+
+  border: 1px solid var(--border);
+
+  color: var(--neon);
+
+  font-size: 13px;
+
+  margin-bottom: 28px;
+}
+
+.status-dot {
+
+  width: 8px;
+  height: 8px;
+
+  background: var(--neon);
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 10px var(--neon);
+
+  animation: statusBlink 1.2s infinite;
+}
+
+@keyframes statusBlink {
+
+  0%,100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+}
+
+/* =========================
+   IDENTITY
+========================= */
+
+.identity {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-bottom: 35px;
+}
+
+.identity span {
+
+  padding: 7px 13px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.025);
+
+  border: 1px solid var(--border);
+
+  color: var(--muted);
+
+  font-size: 12px;
+
+}
+
+.identity i {
+  color: var(--neon);
+  margin-right: 5px;
+}
+
+/* =========================
+   HOME BUTTON
+========================= */
+
+.btn {
+
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 15px 30px;
+
+  border-radius: 12px;
+
+  background: var(--neon);
+
+  color: #041009;
+
+  font-weight: 700;
+
+  font-size: 1rem;
+
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 8px 25px rgba(0,255,153,0.18);
+
+  overflow: hidden;
+}
+
+.btn::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 100%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.35),
+      transparent
+    );
+
+  transition: 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+
+  transform: translateY(-4px);
+
+  background: var(--neon2);
+
+  box-shadow:
+    0 12px 35px rgba(0,255,153,0.35);
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown {
+
+  margin-top: 18px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+
+}
+
+#countdown {
+  color: var(--neon);
+  font-weight: 600;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider {
+
+  height: 1px;
+
+  width: 80%;
+
+  margin: 35px auto;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--border),
+      transparent
+    );
+}
+
+/* =========================
+   SOCIALS
+========================= */
+
+.social-title {
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  margin-bottom: 18px;
+}
+
+.social-icons {
+
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 13px;
+}
+
+.social-icons a {
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.025);
+
+  border: 1px solid var(--border);
+
+  color: var(--neon);
+
+  font-size: 19px;
+
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+
+  transform: translateY(-6px) rotate(-3deg);
+
+  background: var(--neon);
+
+  color: #07110a;
+
+  border-color: var(--neon);
+
+  box-shadow:
+    0 8px 25px rgba(0,255,153,0.25);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+
+  margin-top: 35px;
+
+  color: #666;
+
+  font-size: 11px;
+
+}
+
+.footer strong {
+  color: var(--neon);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+  body {
+    padding: 20px 0;
+  }
+
+  .thank-you-container {
+
+    padding: 40px 22px;
+
+    border-radius: 20px;
+
+  }
+
+  .success-icon {
+
+    width: 75px;
+    height: 75px;
+
+    font-size: 32px;
+
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .message {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+
+    width: 100%;
+
+    padding: 14px 20px;
+
+  }
+
+  .divider {
+    width: 100%;
+  }
+
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     PARTICLES
+========================= -->
+
+<div class="particles" id="particles"></div>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="thank-you-container">
+
+  <div class="brand">
+    LEVEL UP <span>WITH NISIE</span>
+  </div>
+
+
+  <!-- SUCCESS -->
+
+  <div class="success-icon">
+    <i class="fas fa-check"></i>
+  </div>
+
+
+  <!-- STATUS -->
+
+  <div class="status">
+
+    <span class="status-dot"></span>
+
+    Message successfully received
+
+  </div>
+
+
+  <!-- TITLE -->
+
+  <h1>
+    Thank You for <span>Reaching Out!</span> 
+  </h1>
+
+
+  <!-- MESSAGE -->
+
+  <p class="message">
+
+    Your message has officially landed in my inbox.
+    I'll get back to you as soon as I can.
+    Until then, keep learning, keep building,
+    and keep leveling up.
+
+  </p>
+
+
+  <!-- IDENTITY -->
+
+  <div class="identity">
+
+
+    <span>
+      <i class="fas fa-code"></i>
+      Developer
+    </span>
+
+    <span>
+      <i class="fas fa-futbol"></i>
+      Football Fan
+    </span>
+
+    <span>
+      <i class="fas fa-chess-knight"></i>
+      Chess Player
+    </span>
+
+  </div>
+
+
+  <!-- HOME -->
+
+  <a
+    href="index.html"
+    class="btn"
+    aria-label="Return to Level Up with Niisie homepage"
+  >
+
+    <i class="fas fa-house"></i>
+
+    Back to Level Up with Niisie
+
+  </a>
+
+
+  <!-- COUNTDOWN -->
+
+  <div class="countdown">
+
+    Taking you home in
+    <span id="countdown">15</span>s
+
+  </div>
+
+
+  <div class="divider"></div>
+
+
+
+
+  <!-- FOOTER -->
+
+  <div class="footer">
+
+    © <span id="year"></span>
+    <strong>Niisie</strong> · Level Up · Keep Building 🚀
+
+  </div>
+
+</main>
+
+
+<script>
+
+/* =========================
+   PARTICLE GENERATOR
+========================= */
+
+const particlesContainer =
+  document.getElementById("particles");
+
+const particleCount = 35;
+
+for (let i = 0; i < particleCount; i++) {
+
+  const particle =
+    document.createElement("span");
+
+  particle.classList.add("particle");
+
+  particle.style.left =
+    Math.random() * 100 + "%";
+
+  particle.style.animationDuration =
+    (8 + Math.random() * 15) + "s";
+
+  particle.style.animationDelay =
+    Math.random() * 10 + "s";
+
+  const size =
+    2 + Math.random() * 3;
+
+  particle.style.width =
+    size + "px";
+
+  particle.style.height =
+    size + "px";
+
+  particlesContainer.appendChild(particle);
+
+}
+
+
+/* =========================
+   CURRENT YEAR
+========================= */
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+let seconds = 15;
+
+const countdown =
+  document.getElementById("countdown");
+
+const timer =
+  setInterval(() => {
+
+    seconds--;
+
+    countdown.textContent = seconds;
+
+    if (seconds <= 0) {
+
+      clearInterval(timer);
+
+      window.location.href = "index.html";
+
+    }
+
+  }, 1000);
+
+
+/* =========================
+   STOP COUNTDOWN IF
+   USER INTERACTS
+========================= */
+
+document.querySelector(".btn")
+  .addEventListener("click", () => {
+
+    clearInterval(timer);
+
+  });
+
+</script>
+
+</body>
+</html>
